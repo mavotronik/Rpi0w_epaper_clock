@@ -7,12 +7,10 @@ from PIL import Image
 from PIL import ImageFont
 from PIL import ImageDraw
 
-
-
 RES_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'resources/')
 
 DATEFORMAT = "%d/%m/%y"
-TIMEFORMAT = "%H:%M"
+TIMEFORMAT = "%H:%M:%S"
 FONT = os.path.join(RES_DIR, 'FreeMono.ttf')
 FONTBOLD = os.path.join(RES_DIR, 'FreeMonoBold.ttf')
 
@@ -24,6 +22,7 @@ try:
 
     epd = epd2in13_V3.EPD()
     epd.init()
+    #epd.Clear(0xFF)
     
     dt_now = datetime.datetime.now()
     time_rn = dt_now.strftime(TIMEFORMAT)
@@ -34,9 +33,12 @@ try:
     # draw = draw.transpose(Image.ROTATE_180)
     draw.text((40, 15), time_rn, font = timefont, fill = 0)
     draw.text((20, 60), date_rn, font = timefont, fill = 0)
-    epd.display(epd.getbuffer(image))
-
-    epd2in13_V3.epdconfig.module_exit()
+    epd.displayPartial(epd.getbuffer(image))
+    
+    time.sleep(0.5)
+    epd.Clear(0xFF)
+    epd.sleep()
+   
 
 except IOError as e:
     print(e)
