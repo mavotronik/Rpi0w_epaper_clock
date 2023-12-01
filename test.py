@@ -8,6 +8,9 @@ from PIL import ImageFont
 from PIL import ImageDraw
 import psutil
 import socket
+from requests import get
+
+
 
 RES_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'resources/')
 
@@ -16,6 +19,10 @@ FONTBOLD = os.path.join(RES_DIR, 'FreeMonoBold.ttf')
 
 resfont_size = 13
 resfont = ImageFont.truetype(FONT, resfont_size)
+
+HA_IP = "192.168.2.12:8123"
+HA_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiI0MDFiZTZmMGY0M2Q0ODUxOGUwYTJjYzE0NmI4MTZhNiIsImlhdCI6MTcwMTM3MjE5OCwiZXhwIjoyMDE2NzMyMTk4fQ.pulxx0mfuLPTRxHj5A6P4D4EjO-v3LBiInuWUZZNTD4"
+
 try:
 
     epd = epd2in13_V3.EPD()
@@ -40,6 +47,15 @@ try:
     netstring = '\n'.join(ifaddresses)
     print(netstring)
 
+    url = f"http://{HA_IP}/api/states/sensor.datchik_za_oknom_temperature"
+    headers = {
+        "Authorization": f"Bearer {HA_TOKEN}",
+        "content-type": "application/json",
+    }
+    response = get(url, headers=headers)
+    print(response.text)
+    temp = str((response['attributes']['state']))
+    print(temp)
     
     epd2in13_V3.epdconfig.module_exit()
 
