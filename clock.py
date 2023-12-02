@@ -96,6 +96,7 @@ try:
 
 
 except IOError as e:
+    print("Oh, this fucking error happen again!")
     print(e)
 
 except KeyboardInterrupt:
