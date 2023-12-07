@@ -6,6 +6,7 @@ After=multi-user.target
 Type=idle
 User=matty
 Group=matty
+Restart=on-failure
 ExecStart=/usr/bin/python3 /home/matty/Rpi0w_epaper_clock/clock.py
 
 [Install]
