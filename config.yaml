@@ -1,0 +1,13 @@
+date: 
+  format: "%d/%m/%y"
+
+time: 
+  format: "%H:%M"
+
+
+
+home_assistant:
+  ip: "HA IP here"
+  token: "HA token here"
+  entities:
+    - "sensor.ds18b20_examplee_temperature"
