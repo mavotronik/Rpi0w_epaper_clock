@@ -16,9 +16,6 @@ def load_config(file_path="config.yaml"):
 
 config = load_config()
 
-
-upload_folder = config["dirs"]["uploads"]
-
 RES_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'resources/')    # directory with fonts, pictures, etc...
 
 DATEFORMAT = config["date"]["format"]
@@ -41,6 +38,7 @@ resfont = ImageFont.truetype(FONT, resfont_size)    # font for display system re
 
 NumToClear = 0
 
+ENTITY = config["home_assistant"]["entities"][0]
 
 url = f"http://{HA_IP}/api/states/{ENTITY}"
 headers = {
