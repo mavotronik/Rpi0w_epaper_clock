@@ -1,3 +1,5 @@
+#UNSUPPORTEDDDDD
+
 from waveshare_epd import epd2in13_V3
 import time
 import datetime

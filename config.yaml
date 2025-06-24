@@ -4,6 +4,10 @@ date:
 time: 
   format: "%H:%M"
 
+display:
+  full_clear_after: 30
+  rotate_deg: 180
+
 home_assistant:
   ip: "HA IP here"
   token: "HA token here"
