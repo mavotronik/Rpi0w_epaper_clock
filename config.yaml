@@ -4,8 +4,6 @@ date:
 time: 
   format: "%H:%M"
 
-
-
 home_assistant:
   ip: "HA IP here"
   token: "HA token here"

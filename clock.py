@@ -8,24 +8,17 @@ from PIL import ImageFont
 from PIL import ImageDraw
 import psutil
 import requests
-import yaml
-
-def load_config(file_path="config.yaml"):
-    with open(file_path, "r") as f:
-        return yaml.safe_load(f)
-
-config = load_config()
 
 RES_DIR = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'resources/')    # directory with fonts, pictures, etc...
 
-DATEFORMAT = config["date"]["format"]
-TIMEFORMAT = config["time"]["format"]
+DATEFORMAT = "%d/%m/%y"
+TIMEFORMAT = "%H:%M"
 
 FONT = os.path.join(RES_DIR, 'FreeMono.ttf')
 FONTBOLD = os.path.join(RES_DIR, 'FreeMonoBold.ttf')    # fonts
 
-HA_IP = config["home_assistant"]["ip"]
-HA_TOKEN = config["home_assistant"]["token"]
+HA_IP = "your homeassistant ip:8123"
+HA_TOKEN = "your long live homeassistant token"
 
 timefont_size = 35
 timefont = ImageFont.truetype(FONTBOLD, timefont_size)    # font for display time
@@ -38,9 +31,9 @@ resfont = ImageFont.truetype(FONT, resfont_size)    # font for display system re
 
 NumToClear = 0
 
-ENTITY = config["home_assistant"]["entities"][0]
 
-url = f"http://{HA_IP}/api/states/{ENTITY}"
+
+url = f"http://{HA_IP}/api/states/sensor.datchik_za_oknom_temperature"
 headers = {
     "Authorization": f"Bearer {HA_TOKEN}",
     "content-type": "application/json",
@@ -103,7 +96,6 @@ try:
 
 
 except IOError as e:
-    print("Oh, this fucking error happen again!")
     print(e)
 
 except KeyboardInterrupt:
