@@ -1,16 +1,14 @@
-date: 
-  format: "%d/%m/%y"
-
-time: 
-  format: "%H:%M"
-  
 display:
   model: 2in13_V3
-  full_clear_after: 5
+  full_clear_after: 30
   rotate_deg: 180
 
-home_assistant:
-  ip: "HA IP here"
-  token: "HA token here"
-  entities:
-    - "sensor.ds18b20_examplee_temperature"
+modules:
+  - clock
+
+clock: 
+  date_format: "%d/%m/%y"
+  time_format: "%H:%M"
+  time_pos: [60, 25]
+  date_pos: [75, 65]
+
