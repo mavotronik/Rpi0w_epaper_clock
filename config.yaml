@@ -3,9 +3,10 @@ date:
 
 time: 
   format: "%H:%M"
-
+  
 display:
-  full_clear_after: 30
+  model: 2in13_V3
+  full_clear_after: 5
   rotate_deg: 180
 
 home_assistant:

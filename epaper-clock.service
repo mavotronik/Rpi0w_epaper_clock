@@ -3,11 +3,15 @@ Description=Shows clock on an e-paper display
 After=multi-user.target
 
 [Service]
-Type=idle
-User=matty
-Group=matty
+Type=simple
+User=mavotronik
+Group=gpio
+WorkingDirectory=/home/mavotronik/Rpi0w_epaper_clock
+ExecStart=/usr/bin/python3 /home/mavotronik/Rpi0w_epaper_clock/main.py
 Restart=on-failure
-ExecStart=/usr/bin/python3 /home/matty/Rpi0w_epaper_clock/clock.py
+StandardOutput=journal
+StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
+
