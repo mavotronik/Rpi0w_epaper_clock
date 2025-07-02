@@ -5,6 +5,8 @@ display:
 
 modules:
   - clock
+  - home_assistant
+  - flightradar24
 
 clock: 
   date_format: "%d/%m/%y"
@@ -17,3 +19,9 @@ home_assistant:
   token: "token"
   entity: "sensor.outdoor_sensors_ds18b20_temperature"
   pos: [15, 80]
+
+flightradar24:
+  lat: 47.69356464899508
+  lon: 99.688212871551517
+  radius: 10000
+  pos: [30, 3]
