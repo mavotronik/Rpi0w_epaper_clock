@@ -9,6 +9,7 @@
 ### It can display:
 - Time
 - Date
+- Any info from custom modules
 
 # How to install:
 1. Turn on SPI via ```sudo raspi-config```
@@ -34,3 +35,7 @@
     ```
     python3 main.py
     ```
+
+## Modules:
+### Clock functions can be explaned by creating custom modules.
+Read more on [document](https://github.com/mavotronik/Rpi0w_epaper_clock/blob/main/modules/README.md)
