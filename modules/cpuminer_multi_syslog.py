@@ -5,8 +5,8 @@ def render(draw, fonts, config):
 
     data = watch_miner()
     hs_pos = config.get("hs_pos", (170, 25))
-    accepted_pos = ("accepted_pos", (170, 35))
-    percentage_pos = ("percentage_pos", (170, 45))
+    accepted_pos = config.get("accepted_pos", (170, 40))
+    percentage_pos = config.get("percentage_pos", (170, 55))
 
     draw.text(hs_pos, data[0], font=fonts["res"], fill=0)
     draw.text(accepted_pos, f"{data[1]}", font=fonts["res"], fill=0)
